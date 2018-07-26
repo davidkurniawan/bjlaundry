@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="886831f9-5f33-4001-9669-de2dd0233511">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Crosstab Data Text" hAlign="Center"/>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#FFE6BF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#FFF5E6">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue()%2==0)]]></conditionExpression>
+			<style backcolor="#FFFCF8"/>
+		</conditionalStyle>
+	</style>
+	<style name="Heading 2" fontSize="14" isBold="true" isItalic="true"/>
+	<style name="Heading 3" fontSize="14" isBold="true"/>
+	<style name="Default"/>
+	<style name="Text Body"/>
+	<style name="table 2">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 5">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 5_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 5_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 5_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="Table Dataset 1" uuid="6d893a03-b850-46be-b313-e7d0a7cea7ff">
+		<parameter name="sum" class="java.lang.Integer"/>
+		<queryString>
+			<![CDATA[SELECT SUM(biaya_pengeluaran)
+From dbpengeluaran]]>
+		</queryString>
+	</subDataset>
+	<parameter name="Start" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="End" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT dbcucikiloan.Kodebon , dbcucikiloan.Tanggal , dbcucikiloan.JenisBarang ,  dbcucikiloan.TotalHarga 
+FROM dbcucikiloan 
+WHERE dbcucikiloan.Tanggal 
+BETWEEN $P{Start} AND $P{End}
+ORDER BY Kodebon ASC]]>
+	</queryString>
+	<field name="Kodebon" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Tanggal" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="JenisBarang" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="TotalHarga" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<variable name="keuntungan" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{TotalHarga}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="135" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="0" width="555" height="1" uuid="a605de2e-15fb-4486-a9ed-80786fa89a2f"/>
+			</line>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="94" width="555" height="1" uuid="bf24d426-c135-47b1-b9e8-edaffad2b33e"/>
+			</line>
+			<image scaleImage="RetainShape" hAlign="Left" vAlign="Top">
+				<reportElement mode="Transparent" x="0" y="1" width="556" height="118" forecolor="#000000" backcolor="#FFFFFF" uuid="0fce2dc9-ac29-459c-adb9-c569465ac3f7"/>
+				<graphicElement fill="Solid"/>
+				<imageExpression><![CDATA["C:\\Users\\Lazuardi\\Documents\\NetBeansProjects\\Skripsi_IlhamLazuardi\\Icon\\Kop surat.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="3" y="95" width="553" height="40" uuid="fc23b982-9022-43ab-9973-138fbd44be4f"/>
+				<textElement textAlignment="Center">
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[REKAP CUCI KILOAN]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="19" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="144" y="0" width="145" height="18" forecolor="#FFFFFF" backcolor="#999999" uuid="0ae5e2b4-5e5f-4917-8003-88c33bc1f33f"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Tanggal]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="289" y="0" width="143" height="18" forecolor="#FFFFFF" backcolor="#999999" uuid="36328f5c-d4e4-47d5-a595-51d5f3858692"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Jenis]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="431" y="0" width="124" height="18" forecolor="#FFFFFF" backcolor="#999999" uuid="1d004c26-3307-41ca-af51-791ec30b7ac0"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="2" y="0" width="143" height="18" forecolor="#FFFFFF" backcolor="#999999" uuid="7c701ea3-4e42-40da-a602-c82234ff8ad8"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Kode]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="26" splitType="Stretch">
+			<line>
+				<reportElement x="1" y="19" width="554" height="1" uuid="5de3d7e6-8b8f-4299-a49a-bcc00d7fd8a5"/>
+			</line>
+			<textField>
+				<reportElement x="2" y="0" width="142" height="20" uuid="25279ebc-cadf-44b4-ae4f-3ed07b420d9f"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{Kodebon}]]></textFieldExpression>
+			</textField>
+			<textField pattern="yyyy/MM/dd" isBlankWhenNull="false">
+				<reportElement mode="Transparent" x="144" y="0" width="145" height="20" forecolor="#000000" backcolor="#FFFFFF" uuid="9c55b039-0e7d-4ada-8ffc-134053de8ba4"/>
+				<textElement textAlignment="Center" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Tanggal}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="289" y="0" width="142" height="20" uuid="d3ed347f-b4cd-4f1e-b4f1-c405f1f46f89"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{JenisBarang}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="443" y="0" width="100" height="20" uuid="5be4adf3-4d2e-4a97-99e6-395c29e548b0"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{TotalHarga}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="28" splitType="Stretch">
+			<textField evaluationTime="Report" pattern="" isBlankWhenNull="false">
+				<reportElement key="textField" x="516" y="6" width="36" height="19" forecolor="#000000" backcolor="#FFFFFF" uuid="28f7dfcc-01e9-459f-9b50-9b6cca6a65f2"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["" + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="" isBlankWhenNull="false">
+				<reportElement key="textField" x="346" y="7" width="170" height="19" forecolor="#000000" backcolor="#FFFFFF" uuid="0369b4be-fe11-4a75-b174-2e571f624e3a"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page " + $V{PAGE_NUMBER} + " of "]]></textFieldExpression>
+			</textField>
+			<textField pattern="" isBlankWhenNull="false">
+				<reportElement key="textField" x="1" y="6" width="209" height="19" forecolor="#000000" backcolor="#FFFFFF" uuid="81597810-df72-4738-8657-a2e2672f4e49"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="92" y="6" width="100" height="20" uuid="984abfd4-0c85-4952-bd0e-b37fa4d97693"/>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="49">
+			<staticText>
+				<reportElement x="331" y="0" width="100" height="20" uuid="63e4c2b5-f9f7-44f2-a0fb-aee339f8d9e3"/>
+				<textElement textAlignment="Right">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total : ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="432" y="0" width="120" height="20" uuid="38cd810e-fc8a-481e-af27-fafd0bd32295"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{keuntungan}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>
